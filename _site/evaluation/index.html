@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <title>
+      
+        Evaluation - Visual Relationship Detection
+      
+    </title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="/assets/css/normalize.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="/assets/js/respond.min.js"></script>
+    <![endif]-->
+
+  </head>
+  <body>
+    <div class="container">
+      <header role="banner">
+        <div class="wrap">
+          
+          <h1 class="site-title"><a class="title-link" href="/">Visual Relationship Detection</a></h1>
+        </div>
+      </header>
+
+      <div class="wrap content">
+
+        <aside>
+  <p class="intro">Term Project for CS 6476 - Computer Vision </p>
+  <br />
+  <p> Authors: Arvind Krishnakumar, Asawaree Bhide, Divyansh Roy, Shubhangi Upasani </p>
+  <a class="skip-link visuallyhidden focusable" href="#main">Skip to Main Content</a>
+  <nav class="sidebar-nav" role="navigation">
+    <ul>
+      
+        
+          <li><a href="/./">Home</a></li>
+        
+      
+        
+          <li><a href="/problem_statement/">Problem Statement</a></li>
+        
+      
+        
+          <li><a href="/approach/">Approach</a></li>
+        
+      
+        
+          <li><a href="/experiments/">Experiments</a></li>
+        
+      
+        
+          <li><a href="/evaluation/">Evaluation</a></li>
+        
+      
+        
+          <li><a href="/references/">References</a></li>
+        
+      
+        
+          <li><a href="https://github.com/akrishna77/houghlepuff">houghlepuff Repo</a></li>
+        
+      
+    </ul>
+  </nav>
+</aside>
+
+        <section id="main" class="main-content" role="main">
+          <h2 class="page-title">Evaluation</h2>
+
+<p>We use recall (the percentage of total relevant results correctly classified by our system) (the ability of our model to find all the relevant cases within the dataset) as a performance metric. This is to account for the possibility that some object-object relationships may not have been seen during the training phase.</p>
+
+<p>We will test our model on two datasets: VRD and SVG.</p>
+
+<p>If our model correctly displays bounding boxes with an acceptable precision, we’ll consider it a success. We expect to exploit the correlation between visual and language cues of an image to find accurate visual relationships. We also wish to experiment with how spatial context of objects and the relationships they are involved in differ. For example, a ‘man riding a horse’ and ‘man standing next to a horse’ have the same objects - ‘man’ and ‘horse’ with similar context and spatial features, yet the relationships between them are different.</p>
+
+
+        </section>
+
+      </div><!-- /.wrap content -->
+
+      <footer role="contentinfo">
+        <div class="wrap">
+          <p>This project is maintained by <a href="http://github.com/akrishna77">Arvind</a>.</p>
+
+          <p>Hosted on <a href="http://pages.github.com/">GitHub Pages</a>.</p>
+        </div><!--/.wrap -->
+      </footer>
+    </div> <!-- /.container -->
+    
+    </body>
+</html>
