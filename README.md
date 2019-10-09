@@ -11,7 +11,7 @@ bundle install
 Run Jekyll:
 
 ```
-bundle exec jekyll serve --watch --baseurl ''
+bundle exec jekyll serve --watch --force_polling --baseurl ''
 ```
 
 Open it up in your browser: <http://localhost:4000/>

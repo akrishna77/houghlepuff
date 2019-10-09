@@ -35,21 +35,24 @@ navigation:
 - text: Home
   url: ./
   internal: true
-- text: Problem Statement
-  url: problem_statement/
+- text: Proposal
+  url: proposal/
   internal: true
-- text: Approach
-  url: approach/
-  internal: true
-- text: Experiments
-  url: experiments/
-  internal: true
-- text: Evaluation
-  url: evaluation/
-  internal: true
-- text: References
-  url: references/
-  internal: true
+# - text: Problem Statement
+#   url: problem_statement/
+#   internal: true
+# - text: Approach
+#   url: approach/
+#   internal: true
+# - text: Experiments
+#   url: experiments/
+#   internal: true
+# - text: Evaluation
+#   url: evaluation/
+#   internal: true
+# - text: References
+#   url: references/
+#   internal: true
 - text: houghlepuff Repo
   url: https://github.com/akrishna77/houghlepuff
   internal: false
