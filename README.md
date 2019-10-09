@@ -1,4 +1,4 @@
-# Houghlepuff
+# Visual Relationships
 
 ## To run locally
 

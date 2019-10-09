@@ -18,7 +18,7 @@ authors: Arvind Krishnakumar, Asawaree Bhide, Divyansh Roy, Shubhangi Upasani
 # When working locally use jekyll serve --baseurl '' so that you can view everything at localhost:4000
 # See http://jekyllrb.com/docs/github-pages/ for more info
 #baseurl: ''
-baseurl: '/houghlepuff'
+baseurl: '/visual-relationships'
 
 # Author/Organization info to be displayed in the templates
 author:
@@ -54,7 +54,7 @@ navigation:
 #   url: references/
 #   internal: true
 - text: houghlepuff Repo
-  url: https://github.com/akrishna77/houghlepuff
+  url: https://github.com/akrishna77/visual-relationships
   internal: false
 
 # Repo list
@@ -62,7 +62,7 @@ navigation:
 repos:
 - name: Houghlepuff
   description: Visual Relationship Detection
-  url: https://github.com/akrishna77/houghlepuff
+  url: https://github.com/akrishna77/visual-relationships
 
 # Style Variables
 brand_color: "#2cb34a"
