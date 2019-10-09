@@ -34,26 +34,21 @@ In this project, we propose a few-shot learning based approach to learn the pred
 
 ### Experiments & Evaluation
 
-We plan to evaluate our system on the two publicly available datasets: Visual Relationships and Open Images.
+We plan to evaluate our system on two publicly available datasets: Visual Relationships and Open Images.
 
-The VR dataset contains images annotated by very diverse relationships between objects, not only human-centric
-ones. It has 70 relationships of various nature, such as spatial relationships (e.g. behind, next to), comparative relationships
-(e.g. taller than), and actions (e.g. kick, pull). There are 4000 training and 1000 test images. On average each image is
-annotated by 7.6 relationships. We also use the official metrics for this dataset: Recall@50 and Recall@100. These metrics require the model to output 50 or 100 relationship detections per image, and measure the percentage of ground-truth annotations that
-are correctly detected by these guesses (i.e. measuring recall,
-without considering precision).
+The VR dataset contains images annotated by very diverse relationships between objects, not only human-centric ones. It has 70 relationships of various nature, such as spatial relationships (e.g. behind, next to), comparative relationships (e.g. taller than), and actions (e.g. kick, pull). There are 4000 training and 1000 test images. On average each image is annotated by 7.6 relationships. We also use the official metrics for this dataset: Recall@50 and Recall@100. These metrics require the model to output 50 or 100 relationship detections per image, and measure the percentage of ground-truth annotations that are correctly detected by these guesses (i.e. measuring recall, without considering precision).
 
-The Open Images Dataset (OID) is a very large-scale dataset containing image-level labels, object bounding boxes, and visual relationships annotations. In total it contains 329 distinct relationship triplets and 374, 768 annotations on
-100, 522 images in the training set. We evaluate the model on the hidden Open Images Challenge 2018 test set using the official Kaggle server.
-The metric is the weighted average of the three metrics common for visual relationship detection performance evaluation:
-mAP on phrase detection, mAP for relationship detection and Recall@50 for relationship detections. 
+The Open Images Dataset (OID) is a very large-scale dataset containing image-level labels, object bounding boxes, and visual relationships annotations. In total it contains 329 distinct relationship triplets and 374, 768 annotations on 100, 522 images in the training set. The metric is the weighted average of the three metrics common for visual relationship detection performance evaluation: mAP on phrase detection, mAP for relationship detection and Recall@50 for relationship detections. 
 
 We plan on adapting modules of our project from the following:
 
 <https://github.com/NSchrading/intro-spacy-nlp/blob/master/subject_object_extraction.py> - Subject Object extraction from a phrase.
+
 <https://github.com/Prof-Lu-Cewu/Visual-Relationship-Detection> - Visual Relationship Detection with Language Priors.
 
-If our model correctly displays bounding boxes with an acceptable precision, we’ll consider it a success. We expect to exploit the correlation between visual and language cues of an image to find accurate visual relationships. We also wish to experiment with how spatial context of objects and the relationships they are involved in differ. 
+<https://github.com/rbgirshick/py-faster-rcnn> - Faster R-CNN
+
+ We’ll consider our project a success if our model correctly displays bounding boxes qualitatively. We expect to exploit the correlation between visual and language cues of an image to find accurate visual relationships. We also wish to experiment with how spatial context of objects and the relationships they are involved in differ. 
 
 ### References
 
