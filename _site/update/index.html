@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>
       
-        Mid-Term Project Update - Visual Relationship Detection
+        Midterm Project Update - Visual Relationship Detection
       
     </title>
     <meta name="viewport" content="width=device-width">
@@ -58,7 +58,7 @@
         
       
         
-          <li><a href="https://github.com/akrishna77/visual-relationships">houghlepuff Repo</a></li>
+          <li><a href="https://github.com/akrishna77/CS6476-TermProject">houghlepuff Repo</a></li>
         
       
     </ul>
@@ -66,7 +66,7 @@
 </aside>
 
         <section id="main" class="main-content" role="main">
-          <h2 class="page-title">Mid-Term Project Update</h2>
+          <h2 class="page-title">Midterm Project Update</h2>
 
 <h3 id="abstract">Abstract</h3>
 
@@ -90,17 +90,7 @@
   </li>
   <li>
     <p>Object Detection - This module is used to detect &lt;subject, object&gt; pairs, corresponding to the input query. State-of-the-art object detection models currently have really high accuracy, so we used the pretrained weights from a Resnet50 Faster R-CNN model and obtained bounding boxes and categories for objects in the input image. We then tailored our results to return all pairs relevant to the &lt;s,o&gt; in our input query. <a href="https://github.com/akrishna77/CS6476-TermProject/blob/master/VisRel%20%2B%20All%20Pairs%20Detection.ipynb">[Code]</a></p>
-
-    <p>For example, for the query &lt;person,car&gt; against the following image, we would return 24 images (every combination of the 6 persons and 4 cars detected in the image):</p>
   </li>
-</ul>
-
-<center><img src="../assets/img/bbox1.png" width="450px" alt="" /></center>
-<center><img src="../assets/img/bbox2.png" width="450px" alt="" /></center>
-<center><img src="../assets/img/bbox3.png" width="450px" alt="" /></center>
-<center><img src="../assets/img/bbox4.png" width="450px" alt="" /></center>
-
-<ul>
   <li>
     <p>Data Exploration - We did some analysis on the VRD images’ annotations to learn more information about the nature of the dataset and common subjects, predicates and objects, that had more samples. <a href="https://github.com/akrishna77/CS6476-TermProject/blob/master/DataExploration.ipynb">[Code]</a></p>
   </li>
@@ -116,9 +106,13 @@
 
 <h3 id="experiments-and-results">Experiments and Results</h3>
 
-<p>We have collected 70070 positive and negative pairs for the images in the VRD dataset.</p>
+<p>We have collected 70070 positive and negative pairs for the images in the VRD dataset. These were the most frequent subjects, predicates and objects:</p>
 
-<p>Here are some examples:</p>
+<center><img src="../assets/img/SubjectCounts.png" width="800px" alt="" /></center>
+<center><img src="../assets/img/PredicateCounts.png" width="800px" alt="" /></center>
+<center><img src="../assets/img/ObjectCounts.png" width="800px" alt="" /></center>
+
+<p>Here are some examples of our sampling:</p>
 
 <center><img src="../assets/img/img1.png" width="450px" alt="" /></center>
 <p>Here, the input description given is ‘tree behind woman’. The image on the left clearly is a good positive example of this relationship (behind) between the subject (tree) and object (woman). The image on the right is a good negative example because it is close enough to the input (same subject and object) but very different in terms of the relationship (the predicate ‘left of’ instead of ‘behind’).</p>
@@ -133,15 +127,38 @@
 <center><img src="../assets/img/img10.png" width="450px" alt="" /></center>
 <center><img src="../assets/img/img11.png" width="450px" alt="" /></center>
 
-<p>A challenge we see ihere is that certain pairs of predicates are semantically very similar (for instance, ‘above’ and ‘over’ or ‘beside’ and ‘by’ could be used interchangeably in most cases). In this case, the negative sample obtained may actually be a good positive sample as a similar relationship is observed by the objects in the image. Due to the scope of the project, we will be limiting predicates to those where our negative sampling works well.</p>
+<p>A challenge we see here is that certain pairs of predicates are semantically very similar (for instance, ‘above’ and ‘over’ or ‘beside’ and ‘by’ could be used interchangeably in most cases). In this case, the negative sample obtained may actually be a good positive sample as a similar relationship is observed by the objects in the image. Due to the scope of the project, we will be limiting predicates to those where our negative sampling works well.</p>
 
 <p>As of now, we have prepared the dataset and implemented the language and vision sub-modules we would be using. We will now start working on training the model with the collected positive and negative examples for each predicate.</p>
+
+<h3 id="qualitative-results">Qualitative Results</h3>
+
+<p>The language module is able to extract the &lt;s,v,o&gt; from a text input:</p>
+
+<center><img src="../assets/img/spacy.png" width="600px" alt="" /></center>
+
+<p>For the query &lt;person,car&gt; against the following image, our Object Detection module returns 24 images (every combination of the 6 persons and 4 cars detected in the image):</p>
+
+<center><img src="../assets/img/bbox1.png" width="450px" alt="" /></center>
+<center><img src="../assets/img/bbox2.png" width="450px" alt="" /></center>
+<center><img src="../assets/img/bbox3.png" width="450px" alt="" /></center>
+<center><img src="../assets/img/bbox4.png" width="450px" alt="" /></center>
 
 <h3 id="conclusion-and-future-plan-of-action">Conclusion and Future Plan of Action</h3>
 
 <p>The next step is to train the model using our prepared dataset. The goal is to train a model that will be able to differentiate between  different kinds of relationships and match them to the queried predicate. We use triplet loss to better train the model and use lesser data at the same time. During testing, we would pass an input image and query to the model and expect it to determine the specified relationship.</p>
 
 <p>We plan to make the pipeline adaptable to more natural textual inputs (full sentences and not just &lt;subject,predicate,object&gt;), as an extension to the projet, if time permits. We would also like to include heuristics-based pair filtering in the Object Detection module, as an optimization.</p>
+
+<h3 id="references">References</h3>
+
+<ol>
+  <li><a href="https://www.learnopencv.com/faster-r-cnn-object-detection-with-pytorch/">Satya Mallick’s Blog for Faster-RCNN</a></li>
+  <li><a href="https://github.com/peter3125/enhanced-subject-verb-object-extraction">Peter’s Github for S,P,O extraction using Spacy</a></li>
+  <li><a href="https://github.com/acrosson/nlp/blob/master/subject_extraction/subject_extraction.py">NLTK</a></li>
+  <li><a href="https://playwithml.wordpress.com/2016/06/15/extracting-relations-or-subject-predicate-object-triples/">Stanford Parser Approach</a></li>
+  <li><a href="https://github.com/andreasveit/triplet-network-pytorch">PyTorch for Triplet Loss</a></li>
+</ol>
 
 
         </section>
