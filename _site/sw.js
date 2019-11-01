@@ -11,7 +11,7 @@ var filesToCache = [
   // images
   '/assets/img/octocat.png',
   // pages
-  '/jekyll/update/2013/11/20/welcome-to-jekyll.html','/approach/','/evaluation/','/experiments/','/problem_statement/','/proposal/','/references/',
+  '/jekyll/update/2013/11/20/welcome-to-jekyll.html','/approach/','/evaluation/','/experiments/','/problem_statement/','/proposal/','/references/','/update/',
   // posts
   '/jekyll/update/2013/11/20/welcome-to-jekyll.html',
 ];

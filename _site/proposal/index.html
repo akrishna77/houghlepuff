@@ -42,23 +42,15 @@
         
       
         
-          <li><a href="/proposal/">Proposal</a></li>
-        
-      
-        
           <li><a href="/problem_statement/">Problem Statement</a></li>
         
       
         
-          <li><a href="/approach/">Approach</a></li>
+          <li><a href="/proposal/">Proposal</a></li>
         
       
         
-          <li><a href="/experiments/">Experiments</a></li>
-        
-      
-        
-          <li><a href="/evaluation/">Evaluation</a></li>
+          <li><a href="/update/">Mid-Term Project Update</a></li>
         
       
         
@@ -78,7 +70,7 @@
 
 <h3 id="problem-statement">Problem Statement</h3>
 
-<p>The field of Computer Vision has seen many advances over the last few years, but we haven’t been able to achieve the same standards as human perception. In this project, we focus on the specific task of visual relationship detection to make progress towards genuine scene understanding. Our goal is to be able to detect objects of interest in an image, given a particular relationship that has been highlighted through text input. The input to the system is an image along with a textual description of an object-object relationship and the output is the image with bounding boxes around the objects that correspond to the textual input. Given the input, plate next to pizza”, the output would be the pink bounding box on the right:</p>
+<p>The field of Computer Vision has seen many advances over the last few years, but we haven’t been able to achieve the same standards as human perception. In this project, we focus on the specific task of visual relationship detection to make progress towards genuine scene understanding. Our goal is to be able to detect objects of interest in an image, given a particular relationship that has been highlighted through text input. The input to the system is an image along with a textual description of an object-object relationship and the output is the image with bounding boxes around the objects that correspond to the textual input. Given the input, “plate next to pizza”, the output would be the pink bounding box on the right:</p>
 
 <center><img src="../assets/img/pizza_plate.png" width="300px" alt="" /></center>
 
@@ -108,26 +100,21 @@ Neural Network Model: Based on the positions of relevant bounding boxes with res
 
 <h3 id="experiments--evaluation">Experiments &amp; Evaluation</h3>
 
-<p>We plan to evaluate our system on the two publicly available datasets: Visual Relationships and Open Images.</p>
+<p>We plan to evaluate our system on two publicly available datasets: Visual Relationships and Open Images.</p>
 
-<p>The VR dataset contains images annotated by very diverse relationships between objects, not only human-centric
-ones. It has 70 relationships of various nature, such as spatial relationships (e.g. behind, next to), comparative relationships
-(e.g. taller than), and actions (e.g. kick, pull). There are 4000 training and 1000 test images. On average each image is
-annotated by 7.6 relationships. We also use the official metrics for this dataset: Recall@50 and Recall@100. These metrics require the model to output 50 or 100 relationship detections per image, and measure the percentage of ground-truth annotations that
-are correctly detected by these guesses (i.e. measuring recall,
-without considering precision).</p>
+<p>The VR dataset contains images annotated by very diverse relationships between objects, not only human-centric ones. It has 70 relationships of various nature, such as spatial relationships (e.g. behind, next to), comparative relationships (e.g. taller than), and actions (e.g. kick, pull). There are 4000 training and 1000 test images. On average each image is annotated by 7.6 relationships. We also use the official metrics for this dataset: Recall@50 and Recall@100. These metrics require the model to output 50 or 100 relationship detections per image, and measure the percentage of ground-truth annotations that are correctly detected by these guesses (i.e. measuring recall, without considering precision).</p>
 
-<p>The Open Images Dataset (OID) is a very large-scale dataset containing image-level labels, object bounding boxes, and visual relationships annotations. In total it contains 329 distinct relationship triplets and 374, 768 annotations on
-100, 522 images in the training set. We evaluate the model on the hidden Open Images Challenge 2018 test set using the official Kaggle server.
-The metric is the weighted average of the three metrics common for visual relationship detection performance evaluation:
-mAP on phrase detection, mAP for relationship detection and Recall@50 for relationship detections.</p>
+<p>The Open Images Dataset (OID) is a very large-scale dataset containing image-level labels, object bounding boxes, and visual relationships annotations. In total it contains 329 distinct relationship triplets and 374, 768 annotations on 100, 522 images in the training set. The metric is the weighted average of the three metrics common for visual relationship detection performance evaluation: mAP on phrase detection, mAP for relationship detection and Recall@50 for relationship detections.</p>
 
 <p>We plan on adapting modules of our project from the following:</p>
 
-<p><a href="https://github.com/NSchrading/intro-spacy-nlp/blob/master/subject_object_extraction.py">https://github.com/NSchrading/intro-spacy-nlp/blob/master/subject_object_extraction.py</a> - Subject Object extraction from a phrase.
-<a href="https://github.com/Prof-Lu-Cewu/Visual-Relationship-Detection">https://github.com/Prof-Lu-Cewu/Visual-Relationship-Detection</a> - Visual Relationship Detection with Language Priors.</p>
+<p><a href="https://github.com/NSchrading/intro-spacy-nlp/blob/master/subject_object_extraction.py">https://github.com/NSchrading/intro-spacy-nlp/blob/master/subject_object_extraction.py</a> - Subject Object extraction from a phrase.</p>
 
-<p>If our model correctly displays bounding boxes with an acceptable precision, we’ll consider it a success. We expect to exploit the correlation between visual and language cues of an image to find accurate visual relationships. We also wish to experiment with how spatial context of objects and the relationships they are involved in differ.</p>
+<p><a href="https://github.com/Prof-Lu-Cewu/Visual-Relationship-Detection">https://github.com/Prof-Lu-Cewu/Visual-Relationship-Detection</a> - Visual Relationship Detection with Language Priors.</p>
+
+<p><a href="https://github.com/rbgirshick/py-faster-rcnn">https://github.com/rbgirshick/py-faster-rcnn</a> - Faster R-CNN</p>
+
+<p>We’ll consider our project a success if our model correctly displays bounding boxes qualitatively. We expect to exploit the correlation between visual and language cues of an image to find accurate visual relationships. We also wish to experiment with how spatial context of objects and the relationships they are involved in differ.</p>
 
 <h3 id="references">References</h3>
 

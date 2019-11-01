@@ -42,23 +42,15 @@
         
       
         
-          <li><a href="/proposal/">Proposal</a></li>
-        
-      
-        
           <li><a href="/problem_statement/">Problem Statement</a></li>
         
       
         
-          <li><a href="/approach/">Approach</a></li>
+          <li><a href="/proposal/">Proposal</a></li>
         
       
         
-          <li><a href="/experiments/">Experiments</a></li>
-        
-      
-        
-          <li><a href="/evaluation/">Evaluation</a></li>
+          <li><a href="/update/">Mid-Term Project Update</a></li>
         
       
         
@@ -76,29 +68,26 @@
         <section id="main" class="main-content" role="main">
           <h2 class="page-title">Approach</h2>
 
-<p>Input to the system will be a textual description in the form of a triplet ‘(subject, predicate, object)’ for instance, ‘laptop on desk’. The objective is to produce bounding boxes around the objects involved in the relationship. The model to achieve the same is described in the subsequent sections.</p>
+<p>The existing implementations for visual relationship detection output all possible object-object relationships when fed an image. We intend to detect specific object pairs and a relationship predicate between them that match the given textual input while at the same time try and minimize the number of erroneous pairs our model outputs. The model to achieve the same is described in the subsequent sections.</p>
 
-<p>Training phase,</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1.1. The first step would be to identify a &lt;subject, predicate, object&gt; triplet from the given text input. We will be using the Stanford NLP toolkit/spacy for this task.
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1.1. The first step is to find all object pairs in training images using object detection algorithms like RCNN, fast RCNN or YOLO. So, an image with a cowboy riding a horse gives object pairs like ‘cowboy and horse’, ‘cowboy and hat’, ‘horse and saddle’ etc. 
+1.2. We would then find all possible object pairs in the image. Current state-of-the-art models for object detection achieve impressive performance by leveraging deep convolutional neural networks. We plan to use the Fast RCNN pipeline for this module. 
 
-1.2. Visual module - After finding all possible object pairs from the training data, the next step is to find the possibility of the detected object pairs belonging to the corresponding ground truth relationship label, which is of the form &lt;i,j,k&gt; where i and k are object classes and j is the predicate. Only one type of detected object pairs (that have the relationship as specified by the ground truth) will have the highest probability of belonging to the label. This is achieved by training CNN classifiers. 
+1.3 After finding all possible object pairs, we find object pairs that correspond to the &lt;s,o&gt; detected in the triplet obtained from step 1.1. 
 
-1.3 Language module - This module finds word embeddings of the detected objects and the matching relationship and projects them to common vector space as a relationship vector. After this, similar relationship vectors are found between different object-predicate-object triplets. This is done to match never-seen-before relationships like ‘man riding an elephant’ to the ones already encountered like ‘man riding horse’. 
+1.4 We also introduce a thresholded intra-bounding box distance filter to discard pairs of &lt;s,o&gt; that are spatially distant in the image. This is to keep in line with our limited set of spatial predicates.
 </code></pre></div></div>
 
-<p>Testing phase</p>
+<p>In this project, we propose a few-shot learning based approach to learn the predicate relationship in images. We do this by using a pre-trained convolutional neural network (VGG16) and optimizing a triplet-loss function. Triplet loss is a loss function for neural networks where a baseline (anchor) input is compared to a positive input and a negative input. The distance from the baseline input to the positive input is minimized, and the distance from the baseline input to the negative input is maximized. The input to this model would be an image of our &lt;s,o&gt; pair. The output of this model would be class probabilities for our limited set of predicates. Due to computational limitations and time constraints, we will be using a limited set of spatial predicates to test our approach.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Given a test image and a textual description of a visual relationship between two objects, the task is to detect these objects in the image and use the visual and language modules to learn appropriate features that match the relationship specified through the textual description. Spatial filtering is also performed between the detected object pairs to eliminate unlikely pairs that don’t have meaningful relationship between them. --example??. As output, the object pairs that best match the relationship specified are highlighted with bounding boxes in the image.   
-</code></pre></div></div>
+<h2 id="tasks">Tasks:</h2>
 
-<p>Tasks:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Object Detection: Returning bounding boxes around entities in the image that look like the ‘subject’ and the ‘object’ from the input description.
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Object detection: make bounding boxes around all entities in the image that look like the ‘subject’ and the ‘object’ given in the input description.
+Object Pair Filtering: Filtering out object pairs in the image that do not have a semantically meaningful relationship between them (spatially distant objects).
 
-Object pair filtering: A neural network to filter out object pairs in the image that do not have a visibly meaningful relationship between them (spatially distant objects).
-
-Model: based on the positions of these bounding boxes with respect to each other, detect if the relationship corresponding to the input predicate exists between the entities in question.
+Neural Network Model: Based on the positions of relevant bounding boxes with respect to each other, detect the probability of the relationship corresponding to the input predicate.
 </code></pre></div></div>
 
 
