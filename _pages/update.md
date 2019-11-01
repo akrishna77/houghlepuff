@@ -57,10 +57,9 @@ Here, the input description given is ‘tree behind woman’. The image on the l
 <center><img src="../assets/img/img10.png" width="450px" alt=""></center>
 <center><img src="../assets/img/img11.png" width="450px" alt=""></center>
 
-A challenge we see ihere is that certain pairs of predicates are semantically very similar (for instance, ‘above’ and ‘over’ or ‘beside’ and ‘by’ could be used interchangeably in most cases). In this case, the negative sample obtained may actually be a good positive sample as a similar relationship is observed by the objects in the image. Due to the scope of the project, we will be limiting predicates to those where our negative sampling works well. 
+A challenge we see here is that certain pairs of predicates are semantically very similar (for instance, ‘above’ and ‘over’ or ‘beside’ and ‘by’ could be used interchangeably in most cases). In this case, the negative sample obtained may actually be a good positive sample as a similar relationship is observed by the objects in the image. Due to the scope of the project, we will be limiting predicates to those where our negative sampling works well. 
 
 As of now, we have prepared the dataset and implemented the language and vision sub-modules we would be using. We will now start working on training the model with the collected positive and negative examples for each predicate.
-
 
 ### Conclusion and Future Plan of Action
 
