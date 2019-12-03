@@ -64,7 +64,7 @@ The language module is able to extract the <s,v,o> from a text input:
 
 <center><img src="../assets/img/spacy.png" width="600px" alt=""></center>
 
-For the query <person,car> against the following image, our Object Detection module returns 24 images (every combination of the 6 persons and 4 cars detected in the image):
+For the query <handbag,car> against the following image, our Object Detection module returns 24 images (every combination of the 6 persons and 4 cars detected in the image):
 
 <center><img src="../assets/img/bbox1.png" width="450px" alt=""></center>
 <center><img src="../assets/img/bbox2.png" width="450px" alt=""></center>

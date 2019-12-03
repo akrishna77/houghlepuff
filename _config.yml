@@ -47,6 +47,9 @@ navigation:
 - text: Midterm Project Update
   url: update/
   internal: true
+- text: Final Project Update
+  url: final_update/
+  internal: true
 # - text: Experiments
 #   url: experiments/
 #   internal: true
